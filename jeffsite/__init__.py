@@ -1,5 +1,5 @@
 import os
-from flask import Flask
+from flask import (Flask, Blueprint, render_template, session, url_for)
 
 def create_app(test_config=None):
     app = Flask(__name__, instance_relative_config=True)
@@ -18,11 +18,17 @@ def create_app(test_config=None):
     except OSError:
         pass
 
-    from . import db
-    db.init_app(app)
+    #from . import db
+    #db.init_app(app)
 
     @app.route('/hello')
     def hello():
         return 'Hello World!'
 
+    @app.route('/')
+    @app.route('/home')
+    def home():
+        return render_template('home.html')
+
     return app
+
