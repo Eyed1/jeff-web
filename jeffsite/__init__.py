@@ -1,8 +1,9 @@
 import os
 from flask import (Flask, Blueprint, render_template, session, url_for)
+#from . import render_pdf 
+app = Flask(__name__, instance_relative_config=True)
 
 def create_app(test_config=None):
-    app = Flask(__name__, instance_relative_config=True)
     app.config.from_mapping(
         SECRET_KEY='dev',
         DATABASE = os.path.join(app.instance_path, 'jeffblog.sqlite')
@@ -20,18 +21,20 @@ def create_app(test_config=None):
 
     #from . import db
     #db.init_app(app)
-
-    @app.route('/hello')
-    def hello():
-        return 'Hello World!'
-
-    @app.route('/')
-    @app.route('/home')
-    def home():
-        return render_template('home.html')
-    
-    @app.route('/writing')
-    def writing():
-        return render_template('writing.html')
     return app
+
+@app.route('/hello')
+def hello():
+    return 'Hello World!'
+
+@app.route('/')
+@app.route('/home')
+def home():
+    return render_template('home.html')
+
+@app.route('/writing')
+def writing():
+    return render_template('writing.html')
+
+#import jeffsite.render_pdf
 
