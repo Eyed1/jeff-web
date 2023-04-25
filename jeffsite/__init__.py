@@ -29,6 +29,9 @@ def create_app(test_config=None):
     @app.route('/home')
     def home():
         return render_template('home.html')
-
+    
+    @app.route('/writing')
+    def writing():
+        return render_template('writing.html')
     return app
 
