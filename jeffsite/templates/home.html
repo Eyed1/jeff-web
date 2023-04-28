@@ -2,8 +2,26 @@
 
 {% block header %}
   <h1>{% block title %}Jeff's Home {% endblock %}</h1>
-{% endblock %}
+{% endblock %}   
 
 {% block content %}
-Welcome to Jeff's website!
+<img src = "../static/images/pfp.jpeg" alt = "pfp", height = "257" width = "193">
+<style>
+.textDiv{
+    max-width:400px;
+    background-color: lightgray;
+    font-family: serif;
+    font-size: 16px;
+}
+</style>
+
+<h1>About me</h1>
+<div class = "textDiv">
+I am a senior at the University of Chicago Laboratory Schools and have lived in Chicago for the past 7 years. In high school I was a two-time USA Math Olympiad Gold Medalist and Math Olympiad Program participant. I also play board games (Catan and Diplomacy are favorites), tennis, frisbee, and I love fruits!
+</div>
+<h1>Interests</h1>
+
+<div class = "textDiv">
+I am a mathematician at heart: I crave exploring the theory and relationships inherent in simple mathematical objects. I also am an avid programmer: I compete in coding competitions and enjoy creating software.
+</div>
 {%endblock%}
